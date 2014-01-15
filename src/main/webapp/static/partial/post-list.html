@@ -1,0 +1,33 @@
+<section>
+    <aside class="options">
+        <ul>
+            <li>Search: <input ng-model="query"></li>
+            <li>
+                <select ng-model="orderPost">
+                    <option value="title">Title</option>
+                    <option value="postId">Latest</option>
+                </select>
+            </li>
+            <li><a href="#/posts/create/new/">Create new entry</a></li>
+        </ul>
+    </aside>
+
+    <section class="content">
+        <ul>
+            <li ng-repeat="post in posts | filter:query | orderBy:orderPost">
+                <div>
+                    <h1><a href="#/posts/{{post.postId}}">{{post.title}}</a></h1>
+                    <em>by {{post.author}} on 17/01/2014</em>
+                </div>
+                <p>
+                    {{post.description}}
+                </p>
+
+            </li>
+        </ul>
+
+        <pagination num-pages="noOfPages" current-page="currentPage" class="pagination-small"></pagination>
+
+        <!--p>Total number of posts: {{posts.length}}</p-->
+    </section>
+</section>

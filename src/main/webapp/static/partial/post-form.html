@@ -1,0 +1,20 @@
+<aside class="options">
+    <ul>
+        <li><a href="#/posts">Back to list</a></li>
+        <li><a href="#/posts/{{post.postId}}">Cancel</a></li>
+    </ul>
+
+</aside>
+
+<section>
+
+    <form novalidate class="simple-form">
+        Title: <input type="text" ng-model="post.title" />
+        Description: <input type="text" ng-model="post.description" />
+        Author: <input type="text" ng-model="post.author" />
+
+        <button ng-click="reset()">reset</button>
+        <button ng-click="update(post)">save</button>
+    </form>
+
+</section>

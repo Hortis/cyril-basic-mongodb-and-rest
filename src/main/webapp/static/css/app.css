@@ -1,0 +1,49 @@
+.options li {
+    float: left;
+    display: inline;
+    padding-left: 5px;
+}
+
+.options a {
+    vertical-align: sub;
+}
+
+.options ul {
+    margin: 0;
+    float: right;
+}
+
+.options {
+    text-decoration: none;
+    height: 30px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid;
+    background-color: whitesmoke;
+    padding: 5px;
+}
+
+.content {
+    position: relative;
+    padding-top: 35px;
+}
+
+.content h1 {
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+    text-decoration: none;
+}
+
+.content em {
+    font-size: small;
+}
+
+
+.content div {
+    border-bottom: 1px solid lightgray;
+}
+
+.content li {
+    list-style-type: none;
+    text-decoration: none;
+}

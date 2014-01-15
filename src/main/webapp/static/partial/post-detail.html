@@ -1,0 +1,14 @@
+<aside class="options">
+    <ul>
+        <li><a href="#/posts">Back to list</a></li>
+        <li><a href="#/posts/create/{{post.postId}}">Update Entry</a></li>
+        <li><button ng-click="delete(post)">Delete Entry</button></li>
+    </ul>
+</aside>
+
+<section class="content">
+    <h1>Details for Post {{ post.title }}</h1>
+    <em>{{ post.postId }}</em>
+
+    <p>{{ post.description }}</p>
+</section>
