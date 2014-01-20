@@ -37,6 +37,12 @@
             <artifactId>jersey-container-servlet</artifactId>
             <version>2.5.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>2.5.1</version>
+        </dependency>
         <!-- Required only when you are using JAX-RS Client -->
         <!--dependency>
             <groupId>org.glassfish.jersey.core</groupId>
@@ -94,6 +100,14 @@
             <groupId>ch.qos.logback</groupId>
             <version>1.0.13</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>

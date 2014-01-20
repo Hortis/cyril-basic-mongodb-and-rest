@@ -8,6 +8,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
+
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
@@ -24,7 +25,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
         <param-value>WEB-INF/spring-servlet.xml</param-value>
     </context-param>
 
-    <servlet>
+    <!--servlet>
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -33,7 +34,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
         <url-pattern>/spring-secu</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping-->
 
     <servlet>
         <servlet-name>Blog</servlet-name>
@@ -42,7 +43,6 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
             <param-name>javax.ws.rs.Application</param-name>
             <param-value>ch.hortis.mongodb.training.blog.RSApplication</param-value>
         </init-param>
-
 
         <load-on-startup>1</load-on-startup>
     </servlet>
