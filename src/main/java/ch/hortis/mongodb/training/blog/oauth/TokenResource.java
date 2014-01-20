@@ -1,4 +1,4 @@
-package ch.hortis.mongodb.training.blog.web;
+package ch.hortis.mongodb.training.blog.oauth;
 
 
 import org.slf4j.Logger;

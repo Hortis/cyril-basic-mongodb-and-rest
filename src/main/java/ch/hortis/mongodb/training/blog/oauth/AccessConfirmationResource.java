@@ -1,4 +1,4 @@
-package ch.hortis.mongodb.training.blog.web;
+package ch.hortis.mongodb.training.blog.oauth;
 
 import ch.hortis.mongodb.training.blog.model.AuthorizationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-
-//@Component
 public class AccessConfirmationResource {
 
     @Autowired
@@ -45,15 +43,5 @@ public class AccessConfirmationResource {
 		*/
 		return new AuthorizationResponse(client, (DefaultAuthorizationRequest) clientAuth, "");
 	}
-
-	/*@Path("error")
-    @GET
-	public String handleError() throws Exception {
-		// We can add more stuff to the model here for JSP rendering. If the client was a machine then
-		// the JSON will already have been rendered.
-		model.put("message", "There was a problem with the OAuth2 protocol");
-		return "oauth_error";
-	} */
-
 
 }

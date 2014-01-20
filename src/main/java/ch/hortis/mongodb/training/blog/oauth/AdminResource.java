@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ch.hortis.mongodb.training.blog.web;
+package ch.hortis.mongodb.training.blog.oauth;
 
 import ch.hortis.mongodb.training.blog.model.AuthorizationResponse;
 import org.slf4j.Logger;
@@ -36,8 +36,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import java.security.Principal;
 import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 
 @Component
@@ -52,10 +50,12 @@ public class AdminResource {
     @Autowired
 	private TokenStore tokenStore;
 
+    @Autowired
+    private ClientDetailsService clientDetailsService;
+
 
     public AdminResource() {
         logger.info("create PostResourceImpl");
-        // createData();
     }
 
 
@@ -95,9 +95,6 @@ public class AdminResource {
 		}
 	}
 
-    @Autowired
-    private ClientDetailsService clientDetailsService;
-
 
     @Path("confirm_access")
     @GET
@@ -105,19 +102,6 @@ public class AdminResource {
         HttpSession session= req.getSession(true);
         AuthorizationRequest clientAuth = (AuthorizationRequest) session.getAttribute("authorizationRequest");
         ClientDetails client = clientDetailsService.loadClientByClientId(clientAuth.getClientId());
-        Map<String, String> scopes = new LinkedHashMap<String, String>();
-		/*
-        for (String scope : clientAuth.getScope()) {
-			scopes.put(OAuth2Utils.SCOPE_PREFIX + scope, "false");
-		}
-		for (Approval approval : approvalStore.getApprovals(principal.getName(), client.getClientId())) {
-			if (clientAuth.getScope().contains(approval.getScope())) {
-				scopes.put(OAuth2Utils.SCOPE_PREFIX + approval.getScope(),
-						approval.getStatus() == ApprovalStatus.APPROVED ? "true" : "false");
-			}
-		}
-		model.put("scopes", scopes);
-		*/
         return new AuthorizationResponse(client, (DefaultAuthorizationRequest) clientAuth, "");
     }
 

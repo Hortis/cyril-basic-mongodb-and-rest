@@ -40,7 +40,7 @@
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider>
             <security:user-service id="userDetailsService">
-                <security:user name="marissa" password="koala" authorities="ROLE_USER" />
+                <security:user name="marissa" password="koala" authorities="ROLE_USER, ROLE_ADMIN" />
                 <security:user name="paul" password="emu" authorities="ROLE_USER" />
             </security:user-service>
         </security:authentication-provider>
@@ -81,8 +81,8 @@
                        authorities="ROLE_CLIENT, ROLE_TRUSTED_CLIENT" scope="read,write,trust" access-token-validity="60" secret="secret" />
 
         <oauth2:client client-id="my-trusted-client" authorized-grant-types="password,authorization_code,refresh_token,implicit"
-                      authorities="ROLE_CLIENT, ROLE_TRUSTED_CLIENT" scope="read,write,trust" access-token-validity="60" />
-        <oauth2:client client-id="my-trusted-client-with-secret" authorized-grant-types="password,authorization_code,refresh_token,implicit"
+                      authorities="ROLE_CLIENT" scope="read,write" access-token-validity="60"  secret="password"/>
+        <!--oauth2:client client-id="my-trusted-client-with-secret" authorized-grant-types="password,authorization_code,refresh_token,implicit"
                       secret="somesecret" authorities="ROLE_CLIENT, ROLE_TRUSTED_CLIENT" />
         <oauth2:client client-id="my-client-with-secret" authorized-grant-types="client_credentials" authorities="ROLE_CLIENT"
                       scope="read" secret="secret" />
@@ -95,7 +95,7 @@
         <oauth2:client client-id="my-untrusted-client-with-registered-redirect" authorized-grant-types="authorization_code"
                       authorities="ROLE_CLIENT" redirect-uri="http://anywhere" scope="read" />
         <oauth2:client client-id="tonr" resource-ids="test" authorized-grant-types="authorization_code,implicit"
-                      authorities="ROLE_CLIENT" scope="read,write" secret="secret" />
+                      authorities="ROLE_CLIENT" scope="read,write" secret="secret" /-->
 
         <!--Self defined client-->
         <oauth2:client client-id="the_client" authorized-grant-types="authorization_code,client_credentials"

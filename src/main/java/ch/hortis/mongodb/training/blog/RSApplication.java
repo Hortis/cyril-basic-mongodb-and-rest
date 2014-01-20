@@ -13,7 +13,7 @@ public class RSApplication extends ResourceConfig {
 
     public RSApplication() {
         logger.info("RSApplication()");
-        packages("ch.hortis.mongodb.training.blog.web");
+        packages("ch.hortis.mongodb.training.blog.web", "ch.hortis.mongodb.training.blog.oauth");
         //register(PostResourceImpl.class);
     }
 

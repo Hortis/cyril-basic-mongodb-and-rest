@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -19,6 +20,7 @@ import java.util.Map;
 
 @Path("post")
 @Component
+@RolesAllowed(value = {"ROLE_CLIENT"})
 public class PostResourceImpl implements PostResource {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -32,22 +34,6 @@ public class PostResourceImpl implements PostResource {
        // createData();
     }
 
-    /*
-    private void createData() {
-        for (int i = 0; i < 100; i++) {
-            data.put(Long.valueOf(i), create(Long.valueOf(i), "Title" + i, "This is a description " + i, "Cyril"));
-        }
-    }
-
-    private Post create(long id, String title, String descr, String author) {
-        Post post = new Post();
-        post.setAuthor(author);
-        post.setDescription(descr);
-        post.setPostId(id);
-        post.setTitle(title);
-        return post;
-    }
-    */
     @GET
     @Produces(value = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     //@Path("all/{start}/{end}")
@@ -92,6 +78,7 @@ public class PostResourceImpl implements PostResource {
     @DELETE
     @Path("{post_id}")
     @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @RolesAllowed(value = {"ROLE_TRUSTED_CLIENT"})
     @Override
     public Post delete(@PathParam("post_id") String id) {
         logger.info("remove post with id {}", id);
