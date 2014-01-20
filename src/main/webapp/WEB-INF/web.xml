@@ -11,7 +11,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/services/*</url-pattern>
     </filter-mapping>
 
 
@@ -22,19 +22,9 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>WEB-INF/spring-servlet.xml</param-value>
+        <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
-    <!--servlet>
-        <servlet-name>spring</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>spring</servlet-name>
-        <url-pattern>/spring-secu</url-pattern>
-    </servlet-mapping-->
 
     <servlet>
         <servlet-name>Blog</servlet-name>

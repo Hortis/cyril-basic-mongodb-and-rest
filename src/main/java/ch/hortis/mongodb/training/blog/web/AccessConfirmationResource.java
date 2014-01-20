@@ -1,14 +1,11 @@
 package ch.hortis.mongodb.training.blog.web;
 
 import ch.hortis.mongodb.training.blog.model.AuthorizationResponse;
-import ch.hortis.mongodb.training.blog.oauth.SparklrUserApprovalHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.AuthorizationRequest;
 import org.springframework.security.oauth2.provider.ClientDetails;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.DefaultAuthorizationRequest;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -25,9 +22,6 @@ public class AccessConfirmationResource {
 
     @Autowired
 	private ClientDetailsService clientDetailsService;
-
-    @Autowired
-	private SparklrUserApprovalHandler approvalStore;
 
 
     @Path("confirm_access")
