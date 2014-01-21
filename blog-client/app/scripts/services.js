@@ -1,3 +1,4 @@
+'use strict';
 var postServices = angular.module('postServices', ['ngResource']);
 
 postServices.factory('Post', [ '$resource',

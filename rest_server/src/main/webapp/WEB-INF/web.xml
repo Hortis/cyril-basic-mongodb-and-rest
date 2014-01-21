@@ -44,8 +44,4 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     </servlet-mapping>
 
 
-
-    <welcome-file-list>
-        <welcome-file>/static/index.html</welcome-file>
-    </welcome-file-list>
 </web-app>

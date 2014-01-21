@@ -1,3 +1,5 @@
+'use strict';
+
 var postsControllers = angular.module('postsControllers', []);
 postsControllers.$inject = ['$location'];
 
@@ -11,14 +13,15 @@ postsControllers.controller('BlogListCtrl', ['$scope', 'Post', function ($scope,
 
         $scope.posts = Post.query();
         $scope.orderProp = 'postId';
-}]);
+    }
+]);
 
 postsControllers.controller('BlogDetailsCtrl', ['$scope', '$routeParams', '$location', 'Post', function ($scope, $routeParams, $location, Post) {
-    $scope.post = Post.get({postId: $routeParams.postId}, function(post) {});
+    $scope.post = Post.get({postId: $routeParams.postId});
 
     $scope.delete = function(post) {
         Post.delete(post, function() {
-            $location.path("#/posts");
+            $location.path('#/posts');
         });
     };
 
