@@ -1,6 +1,7 @@
 'use strict';
 
 var postsControllers = angular.module('postsControllers', []);
+var usersControllers = angular.module('usersControllers', []);
 postsControllers.$inject = ['$location'];
 
 postsControllers.controller('BlogListCtrl', ['$scope', 'Post', function ($scope, Post) {
@@ -36,8 +37,6 @@ postsControllers.controller('BlogFormCtrl', ['$scope', '$routeParams', 'Post', f
             $scope.master = post;
             $scope.reset();
         });
-    } else {
-        $scope.master = {};
     }
 
     $scope.update = function(post) {
@@ -48,6 +47,25 @@ postsControllers.controller('BlogFormCtrl', ['$scope', '$routeParams', 'Post', f
 
     $scope.reset = function() {
         $scope.post = angular.copy($scope.master);
+    };
+
+
+}]);
+
+
+
+usersControllers.controller('UserFormCtrl', ['$scope', '$rootScope','$location','Security', function ($scope, $rootScope, $location, Security) {
+   
+    $scope.log = function(security) {
+        Security.auth({}, 'client_id=cyrril&client_secret=secret&grant_type=password&username=' + security.username + '&password=' + security.password, function(security) {
+            $rootScope.token = security.value;
+            $location.path('#/posts');
+        }, 
+        function(failure) {
+            // lock useraccount after sometime 
+            alert(failure);
+
+        });
     };
 
 
