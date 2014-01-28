@@ -1,20 +1,40 @@
-<aside class="options">
-    <ul>
-        <li><a href="#/posts">Back to list</a></li>
-        <li><a href="#/posts/{{post.postId}}">Cancel</a></li>
-    </ul>
-
+<aside class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Hortis</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right" id="menu-navbar">
+        <ul class="nav navbar-nav">
+            <li><a href="#/posts">Back to list</a></li>
+            <li><a href="#/posts/{{post.postId}}">Cancel</a></li>
+        </ul>
+    </div>
 </aside>
+
 
 <section>
 
-    <form novalidate class="simple-form">
-        Title: <input type="text" ng-model="post.title" />
-        Description: <input type="text" ng-model="post.description" />
-        Author: <input type="text" ng-model="post.author" />
+    <form novalidate class="simple-form" role="form">
+        <div class="form-group">
+            <label for="title">Title:</label> 
+            <input type="text" class="form-control" placeholder="title" id="title" ng-model="post.title" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label> 
+            <textarea class="form-control" rows="3" placeholder="enter a description" id="description" ng-model="post.description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="author">Author:</label> 
+            <input type="text" class="form-control" placeholder="author" id="author" ng-model="post.author" />
+        </div>
 
-        <button ng-click="reset()">reset</button>
-        <button ng-click="update(post)">save</button>
+        <button class="btn btn-default" ng-click="reset()">reset</button>
+        <button class="btn btn-primary" ng-click="update(post)">save</button>
     </form>
 
 </section>

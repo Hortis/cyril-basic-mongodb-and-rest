@@ -1,14 +1,27 @@
-<aside class="options">
-    <ul>
-        <li><a href="#/posts">Back to list</a></li>
-        <li><a href="#/posts/create/{{post.postId}}">Update Entry</a></li>
-        <li><button ng-click="delete(post)">Delete Entry</button></li>
-    </ul>
+<aside class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Hortis</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right" id="menu-navbar">
+        <ul class="nav navbar-nav">
+            <li><a href="#/posts">Back to list</a></li>
+            <li><a href="#/posts/create/{{post.postId}}">Update Entry</a></li>
+            <li><button class="btn btn-danger navbar-btn" ng-click="delete(post)">Delete Entry</button></li>
+        </ul>
+    </div>
 </aside>
 
-<section class="content">
+
+
+<div>
     <h1>Details for Post {{ post.title }}</h1>
     <em>{{ post.postId }}</em>
-
+    
     <p>{{ post.description }}</p>
-</section>
+</div>

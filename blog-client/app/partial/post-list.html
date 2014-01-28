@@ -1,16 +1,40 @@
 <section>
-    <aside class="options">
-        <ul>
-            <li>Search: <input ng-model="query"></li>
-            <li>
-                <select ng-model="orderPost">
-                    <option value="title">Title</option>
-                    <option value="postId">Latest</option>
-                </select>
-            </li>
-            <li><a href="#/posts/create/new/">Create new entry</a></li>
-        </ul>
+    
+    <aside class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Hortis</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="menu-navbar">
+            <ul class="nav navbar-nav">
+                <li>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" ng-model="query" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort By<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="orderPost = title" href="#">Title</a></li>
+                        <li><a ng-click="orderPost = postId" href="#">Latest</a></li>
+                    </ul>
+                    <!--select ng-model="orderPost" class="select">
+                        <option value="title">Title</option>
+                        <option value="postId">Latest</option>
+                    </select-->
+                </li>
+                <li><a href="#/posts/create/new/">Create new entry</a></li>
+            </ul>
+        </div>
     </aside>
+
 
     <section class="content">
         <ul>
